@@ -1,8 +1,11 @@
 import { Configuration, OpenAIApi } from 'openai'
 import { writeFileSync } from 'fs'
 
+const APIKEY = process.env.APIKEY
+console.log("This is the APIKEY", APIKEY)
+
 const configuration = new Configuration ({
-    apiKey: 'your-api-key',
+    apiKey: APIKEY,
 })
 
 const openai = new OpenAIApi(configuration)
