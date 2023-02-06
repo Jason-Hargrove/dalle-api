@@ -1,15 +1,18 @@
+import * as dotenv from "dotenv"
 import { Configuration, OpenAIApi } from 'openai'
 import { writeFileSync } from 'fs'
 
-const APIKEY = process.env.APIKEY
+dotenv.config()
+
+const API_KEY = process.env.API_KEY
 
 const configuration = new Configuration ({
-    apiKey: APIKEY,
+    apiKey: API_KEY,
 })
 
 const openai = new OpenAIApi(configuration)
 
-const prompt = 'a man in a radiological suit dumping chemical barrel into a river with an atomic plan in the background'
+const prompt = 'a man in a radiological suit, and a woman in a radiological suit with heels, rolling chemical barrels past eachother with an atomic plant in the background'
 
 const result = await openai.createImage({
     prompt,
