@@ -2,7 +2,6 @@ import { Configuration, OpenAIApi } from 'openai'
 import { writeFileSync } from 'fs'
 
 const APIKEY = process.env.APIKEY
-console.log("This is the APIKEY", APIKEY)
 
 const configuration = new Configuration ({
     apiKey: APIKEY,
@@ -22,8 +21,8 @@ const url = result.data.data[0].url;
 console.log(url)
 
 // Save Image URL to Disk
-const imgResult = await fetch()
-const blob = await imgResult.blog()
+const imgResult = await fetch(url)
+const blob = await imgResult.blob()
 const buffer = Buffer.from(await blob.arrayBuffer())
 writeFileSync(`./img/$Date.now()}.png`, buffer)
 
